@@ -1,0 +1,38 @@
+doctype html
+html(lang="es")
+  head
+    title Eliminar elemento de newsletter
+    meta(charset="utf-8")
+    link(href="/style.css" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+  body
+    h1 ¿Está seguro de eliminar ese elemento del newsletter?
+    div(class="element")
+      div(class="elementBlock")
+        h3 Titulo: #{element.titulo}
+        h4 Sumario: #{element.sumario}
+        h5 Color de título:
+        if element.color == 'Verde'
+          div(class="elementColor" style="background-color: #00ff00")
+        else if element.color == 'Blanco'
+          div(class="elementColor" style="background-color: #ffffff")
+        else 
+          div(class="elementColor" style="background-color: #bbb01c")
+        h5 Color de fondo del texto:
+        if element.color == 'Negro'
+          div(class="elementColor" style="background-color: #000000")
+        else if element.color == 'Blanco'
+          div(class="elementColor" style="background-color: #ffffff")
+        else 
+          div(class="elementColor" style="background-color: #0000ff")
+        h5 Posición del texto:
+        h5=element.posicion
+      div(class="elementBlock")
+        h5 Imagen:
+        img(class="elementImage" src="#{element.imagen}")
+        h5 URL de destino: 
+        a(class="elementUrl" href="#{element.url}" target="_blank")=element.url
+    form(method="post" action="/#{element.id}?_method=delete")
+      input(class="elementButton" type="submit" value="Eliminar")
+    a(href="/")
+      button(class="elementButton") Volver

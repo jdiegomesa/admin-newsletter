@@ -1,0 +1,34 @@
+doctype html
+html(lang="es")
+  head
+    title Nuevo elemento de newsletter
+    meta(charset="utf-8")
+    link(href="/style.css" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+  body
+    h1 Agregar nuevo elemento en el newsletter
+    form(class="newElement" method="post" action"/")
+      label Título de la noticia (opcional)
+      input(type="text" name="titulo" placeholder="Título")
+      label Color del título (opcional)
+      select(name="color")
+        option Blanco
+        option Negro
+        option Verde
+      label Sumario
+      textarea(name="sumario" placeholder="Sumario" required)
+      label Posición del texto
+      select(name="posicion")
+        option Abajo
+        option Centro
+        option Arriba
+      label Color de fondo del texto
+      select(name="colorFondo")
+        option Negro
+        option Blanco
+        option Transparente
+      label URL de la imagen
+      input(type="url" name="imagen" placeholder="Imagen")
+      label URL de la noticia
+      input(type="url" name="url" placeholder="URL")
+      input(class="submit" type="submit" value="Guardar")

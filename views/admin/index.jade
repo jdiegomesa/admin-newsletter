@@ -1,0 +1,51 @@
+doctype html
+html(lang="es")
+  head
+    title Newsletter Admin
+    meta(charset="utf-8")
+    link(href="/style.css" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+  body
+    div(class="header")
+      h1 Newsletter admin
+      a(href="/newsletter" target="_blank") Ir al newsletter
+    each element in elements
+      div(class="element")
+        div(class="elementBlock")
+          if element.titulo
+            h3 Titulo: #{element.titulo}
+          h4 Sumario: #{element.sumario}
+          h5 Color de título:
+          if element.color == 'Verde'
+            div(class="elementColor" style="background-color: #2ab35d")
+          else if element.color == 'Blanco'
+            div(class="elementColor" style="background-color: #ffffff")
+          else 
+            div(class="elementColor" style="background-color: #000000")
+          h5 Color de fondo del texto:
+          if element.color == 'Negro'
+            div(class="elementColor" style="background-color: #000000")
+          else if element.color == 'Blanco'
+            div(class="elementColor" style="background-color: #ffffff")
+          else 
+            div(class="elementColor" style="background-color: transparent")
+          h5 Posición del texto:
+          h5=element.posicion
+        div(class="elementBlock")
+          h5 Imagen:
+          img(class="elementImage" src="#{element.imagen}")
+          h5 URL de destino: 
+          a(class="elementUrl" href="#{element.url}" target="_blank")=element.url
+        a(href="/editar/#{element.id}")
+          button(class="elementButton") Editar noticia
+        a(href="/eliminar/#{element.id}")
+          button(class="elementButton") Eliminar noticia
+    a(class="elementButton" href="/new") Crear un nuevo elemento
+    div(class="description")
+      p ¿Cómo descargar el newsletter?
+      p Dar click en el botón 'Ir al newsletter', luego dar click con el botón secundario y seleccionar 'Ver código fuente'
+      p Guardar el código y enviarlo por la plataforma
+    footer
+      p Desarrollado por 
+        a(href="http://www.juandiegomesa.com" target="_blank") Juan Diego Mesa 
+        ='para NoticiasRCN.com &copy 2018'
